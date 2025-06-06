@@ -1,0 +1,9 @@
+flask
+opencv-python
+opencv-contrib-python
+numpy
+tensorflow
+keras
+fer
+mtcnn
+werkzeug

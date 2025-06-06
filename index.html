@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Face Emotion Detector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+            margin-top: 30px;
+        }
+        form {
+            margin: 20px auto;
+        }
+        .emotion-box {
+            margin: 30px auto;
+            padding: 20px;
+            width: 300px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px #ccc;
+        }
+        .emotion {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .emoji {
+            font-size: 48px;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎭 Face Emotion Detector</h1>
+
+    <!-- Upload Video Form -->
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="video_file" required>
+        <button class="btn" type="submit">📤 Upload & Analyze</button>
+    </form>
+
+    <!-- OR Camera Option -->
+    <p>or</p>
+    <form action="/camera">
+        <button class="btn" type="submit">🎥 Use Camera</button>
+    </form>
+
+    {% if top %}
+    <div class="emotion-box">
+        <div class="emoji">{{ top.emoji }}</div>
+        <h2>{{ top.emotion }}</h2>
+        <p>Overall Score: {{ top.score }}%</p>
+    </div>
+    {% endif %}
+
+    {% if emotions %}
+    <div class="emotion-box">
+        <h3>Average Emotion Scores</h3>
+        {% for e in emotions %}
+            <div class="emotion">{{ e.emoji }} {{ e.emotion }}: {{ e.score }}%</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</body>
+</html>
