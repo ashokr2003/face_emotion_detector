@@ -86,4 +86,4 @@ Deploy the app on cloud servers for wider access
 
 Summary
 This project uses Python and Deep Learning to detect human facial emotions from video or webcam input. It runs as a web application using Flask, displaying the results in the browser.
-This is a practical AI project example that is useful for learning and showcasing in a portfolio.
+
